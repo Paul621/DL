@@ -1,0 +1,17 @@
+#-*- encoding=utf-8 -*-
+import os
+
+filedir = os.getcwd()
+g = os.walk(filedir)
+count = 0
+
+for path,d,filelist in g:  
+    for filename in filelist:
+        if filename.endswith('jpg'):
+            count = count + 1
+            listname = os.path.join(path, filename)+ ' '+ '1' + '\n'
+            print (listname)
+            f = open('egg.txt','a+')
+            f.write(listname)
+            f.close()
+print(count) 
